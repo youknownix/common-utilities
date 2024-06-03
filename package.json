@@ -1,6 +1,6 @@
 {
   "name": "node-utility-functions",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A set of common utility functions for your node applications",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

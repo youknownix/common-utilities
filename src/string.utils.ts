@@ -53,7 +53,18 @@ export const capitalizeFirstLetter = (str?: string | null) => {
 
 export function getPascalString(string?: string | null) {
   if (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    const strings = trimMultipleSpace(string).split(' ');
+
+    let s = '';
+
+    strings.forEach(_s => {
+      s += _s.charAt(0).toUpperCase() + _s.slice(1).toLowerCase();
+      s += ' ';
+    });
+
+    return trimMultipleSpace(s.trim());
+
+    // return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }
 
   return null;
@@ -75,7 +86,7 @@ interface FullName {
   lastName?: string;
 }
 
-export default function SplitName(fullname: string, locale: string): FullName {
+export function splitName(fullname: string, locale?: string): FullName {
   const _fullname = fullname.split(' ');
 
   if (_fullname.length === 0) {
